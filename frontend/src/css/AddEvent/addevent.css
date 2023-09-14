@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Poltawski+Nowy:wght@700&display=swap');
+.event-form {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 5px 5px red, -1em 0 0.4em olive;
+}
+.event-form h2 {
+  font-family: 'Alegreya', serif;
+  font-family: 'Poltawski Nowy', serif;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 8px 6px rgba(0, 0, 0, 0.2), 0px -5px 35px rgba(58, 1, 1, 0.3);
+}
+.evenue {
+  margin-bottom: 0.5rem;
+}
+
+.lable-form {
+  display: block;
+  font-weight: bold;
+  color: white;
+  text-shadow: rgb(48, 0, 45) 5px 0 10px;
+}
+
+input[type='text'],
+input[type='datetime-local'],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.addSubmit {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 25%;
+}
+.addSubmit:hover {
+  background-color: blue;
+  color: white;
+}
+.updateBack {
+  padding: 0.2rem;
+  margin-top: 10px;
+  color: rgb(189, 0, 0);
+  border: 2px solid rgb(255, 147, 16);
+}
+
+.backButton {
+  margin-left: 1rem;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 8px;
+  color: white;
+  display: inline-block;
+  background-color: rgb(255, 147, 16);
+  border: 2px solid rgb(255, 147, 16);
+}
+.backButton:hover {
+  background-color: rgb(255, 10, 10);
+  border: 2px solid rgb(255, 10, 10);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .event-form {
+    margin-top: auto;
+    border: none;
+    max-width: 80%;
+    height: auto;
+    background-image: linear-gradient(
+      to right top,
+      #e73c7e,
+      #ca5fb9,
+      #947fdd,
+      #5297e4,
+      #23a6d5
+    );
+  }
+  .addSubmit {
+    padding: 5px 10px;
+    margin-left: 10%;
+  }
+  .backButton {
+    padding: 5px 10px;
+  }
+}

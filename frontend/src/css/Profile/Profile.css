@@ -1,0 +1,85 @@
+.profile-box {
+  display: flex;
+  justify-content: center;
+}
+.profile {
+  height: inherit;
+  width: 500px;
+  padding: 60px;
+  border: 1px solid aqua;
+  background-color: rgba(20, 9, 70, 0.3);
+  box-shadow: 0 0.188em 1.55em rgb(255, 234, 234);
+}
+
+.profile h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 4px 4px 5px rgba(56, 0, 0, 0.53),
+    20px 11px 8px rgba(108, 55, 125, 1);
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 3px 3px 5px rgba(128, 0, 0, 1);
+}
+
+.labelProfile {
+  font-weight: bold;
+  padding-right: 20px;
+  color: white;
+  text-shadow: rgb(48, 0, 45) 5px 0 10px;
+}
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  position: relative;
+}
+
+.lgbutton {
+  margin-left: 35%;
+}
+.i-profile {
+  display: flex;
+  position: absolute;
+  color: black;
+  margin-top: -2rem;
+  margin-left: 15rem;
+}
+@media (max-width: 768px) {
+  .profile {
+    height: inherit;
+    max-width: 80%;
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .input-group {
+    flex-direction: column;
+  }
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+    width: 100%;
+  }
+  .i-profile {
+    margin-left: 14rem;
+  }
+}
+@media (max-width: 400px) {
+  .i-profile {
+    margin-left: 12.5rem;
+  }
+}

@@ -1,0 +1,29 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  color: white;
+  background: linear-gradient(45deg, #007af0, rgb(189, 28, 28));
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.footer-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.footer-author {
+  font-size: 18px;
+}
+
+/* Media Query for screens with a max-width of 768px */
+@media (max-width: 768px) {
+  .footer-title {
+    font-size: 20px;
+  }
+
+  .footer-author {
+    font-size: 16px;
+  }
+}

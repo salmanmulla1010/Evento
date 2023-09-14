@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Permanent+Marker&display=swap');
+
+.navbar {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: black;
+  padding: 10px 20px;
+  z-index: 1000;
+}
+
+.logo {
+  margin-left: 1.5rem;
+}
+.logo img {
+  cursor: pointer;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  width: 15rem;
+}
+
+.nav-links {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+.username {
+  padding-bottom: 8px;
+}
+
+.nav-links li {
+  color: #fff;
+  margin: 0 10px;
+  gap: 2rem;
+  font-size: 1.3rem;
+  font-family: 'Alegreya', serif;
+}
+.link-nav {
+  text-decoration: none;
+  color: black;
+  margin-right: 1rem;
+}
+.logoutButton {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgb(255, 102, 0);
+  border-radius: 4px;
+  background-color: rgb(255, 102, 0);
+  padding: 3.5px;
+}
+@media screen and (max-width: 767px) {
+  .logo img {
+    cursor: pointer;
+    height: auto;
+    width: 9rem;
+    height: 3rem;
+  }
+  .nav-links li {
+    display: flex;
+    justify-content: center;
+    margin: 3px;
+    color: black;
+  }
+  .logoutButton {
+    margin-left: -2rem;
+  }
+}

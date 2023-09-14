@@ -1,0 +1,13 @@
+body {
+  background-image: linear-gradient(
+    to right top,
+    #e73c7e,
+    #ca5fb9,
+    #947fdd,
+    #5297e4,
+    #23a6d5
+  );
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
