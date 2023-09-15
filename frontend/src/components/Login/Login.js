@@ -62,7 +62,11 @@ const Login = () => {
                   <form className='mx-1 mx-md-4'>
                     <div className='d-flex flex-row align-items-center mb-4'>
                       <div className='flex-fill mb-2'>
-                        <label htmlFor='email' className='form-label'>
+                        <label
+                          htmlFor='email'
+                          className='form-label'
+                          id='email'
+                        >
                           Email-Id :
                         </label>
                         <input
@@ -72,6 +76,8 @@ const Login = () => {
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
                           placeholder='Email'
+                          id='email'
+                          aria-labelledby='email'
                         />
                       </div>
                     </div>
@@ -86,7 +92,11 @@ const Login = () => {
                             {icon}
                           </abbr>
                         </i>
-                        <label htmlFor='password' className='form-label'>
+                        <label
+                          htmlFor='password'
+                          className='form-label'
+                          id='password'
+                        >
                           Password :
                         </label>
                         <div className='password-input'>
@@ -98,6 +108,7 @@ const Login = () => {
                             placeholder='Password'
                             className='form-control'
                             id='password'
+                            aria-labelledby='password'
                           />
                         </div>
                       </div>
@@ -113,8 +124,9 @@ const Login = () => {
                     <div className='d-flex justify-content-center mx-4 mb-3 mb-lg-4'>
                       <button
                         type='submit'
-                        class='btn btn-primary btn-lg'
+                        className='btn btn-primary btn-lg'
                         onClick={loginSubmit}
+                        disabled={password === ''}
                       >
                         Log In
                       </button>

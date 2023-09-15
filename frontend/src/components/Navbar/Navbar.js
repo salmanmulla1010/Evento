@@ -26,6 +26,7 @@ const Navbar = () => {
     }
     fetchData(emailID)
   }, [emailID])
+
   const logout = () => {
     localStorage.clear()
   }

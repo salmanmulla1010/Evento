@@ -199,7 +199,7 @@ function Profile() {
 
   return (
     <div>
-      <Navbar firstname={firstname} />
+      <Navbar />
       <div className='profile-box'>
         <div className='profile'>
           <h2>Profile Information</h2>

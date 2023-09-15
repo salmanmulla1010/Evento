@@ -2,15 +2,16 @@ import React from 'react'
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
 import { expect, jest, test } from '@jest/globals'
 import Signup from './Signup'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
+import '@testing-library/jest-dom/extend-expect'
 const { getByLabelText, getByPlaceholderText, getByText } = render()
 
 describe('Signup Component', () => {
   beforeEach(() => {
     render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Signup />
-      </BrowserRouter>
+      </MemoryRouter>
     )
   })
   test('Sign Up Present', () => {
@@ -19,7 +20,7 @@ describe('Signup Component', () => {
   })
 
   test('should render the input first name  placeholder', () => {
-    const firstNameInput = screen.getByPlaceholderText(/First Name/i)
+    const firstNameInput = screen.getByPlaceholderText(/First Name */i)
     expect(firstNameInput).toBeInTheDocument()
   })
 
@@ -136,6 +137,12 @@ describe('Signup Component', () => {
     expect(getByLabelText('Your Last Name')).toBeInTheDocument()
     expect(getByLabelText('Email-Id')).toBeInTheDocument()
     expect(getByLabelText('Password')).toBeInTheDocument()
+  })
+  test('button should be disable for empty password', () => {
+    const inputPassword = getByLabelText('Password')
+    fireEvent.change(inputPassword, { target: { value: '' } })
+    const btn = getByRole('button', { name: 'Register' })
+    expect(btn).toHaveAttribute('disabled')
   })
 
   test('validates the First Name field is not empty', async () => {

@@ -95,6 +95,20 @@ router.get('/register/:email', (req, resp) => {
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
+//get perticular profile
+router.get('/profile/:email', (req, resp) => {
+  const email = req.params.email
+  const updateByEmail = 'SELECT firstname FROM visitors WHERE email = ?'
+  mydb.query(updateByEmail, [email], (err, result) => {
+    if (err) {
+      console.log('Error Update Data By Email', err)
+      resp.status(500).json({ error: 'Internal Server Error' })
+    } else {
+      resp.json(result[0])
+    }
+  })
+})
+//////////////////////////////////////////////////////////////////////////////////////////////////
 //update profile
 const updateVisitors =
   'UPDATE `visitors` SET `firstname`=?, `lastname`=?, `email`=?, `password`=? WHERE email=?'

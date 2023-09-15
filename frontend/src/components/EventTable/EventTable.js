@@ -22,7 +22,7 @@ const EventTable = () => {
   const handleDelete = async (id) => {
     try {
       console.log('Deleted id ', id)
-      const result = await axios
+      await axios
         .delete(`http://localhost:5000/addevent/${id}`)
         .then(setEvent(event.filter((events) => events.id !== id)))
     } catch (err) {

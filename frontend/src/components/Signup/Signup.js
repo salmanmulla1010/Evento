@@ -109,7 +109,7 @@ const Signup = () => {
               <div className='row justify-content-center'>
                 {/* adjusts all the input column sizes */}
                 <div className='col-md-10 col-lg-10 col-xl-5 order-2'>
-                  <p className='text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4'>
+                  <p className='text-center h1 fw-bold mb-2 mx-1 mx-md-4 mt-2'>
                     Sign Up
                   </p>
                   <form className='mx-1 mx-md-4'>
@@ -119,11 +119,11 @@ const Signup = () => {
                         className='form-label'
                         id='firstname'
                       >
-                        Your First Name<span className='text-danger'>*</span>
+                        Your First Name
                       </label>
                       <input
                         type='text'
-                        // aria-labelledby='firstname'
+                        aria-labelledby='firstname'
                         name='firstname'
                         className='form-control'
                         value={firstname}
@@ -144,11 +144,11 @@ const Signup = () => {
                         className='form-label'
                         id='lastname'
                       >
-                        Your Last Name <span className='text-danger'>*</span>
+                        Your Last Name
                       </label>
                       <input
                         type='text'
-                        // aria-labelledby='lastname'
+                        aria-labelledby='lastname'
                         name='lastname'
                         className='form-control'
                         value={lastname}
@@ -164,11 +164,11 @@ const Signup = () => {
 
                     <div className='flex-fill mb-3'>
                       <label htmlFor='email' className='form-label' id='email'>
-                        Email-Id <span className='text-danger'>*</span>
+                        Email-Id
                       </label>
                       <input
                         type='email'
-                        // aria-labelledby='email'
+                        aria-labelledby='email'
                         className='form-control'
                         name='email'
                         value={email}
@@ -194,11 +194,12 @@ const Signup = () => {
                         className='form-label'
                         id='password'
                       >
-                        Password <span className='text-danger'>*</span>
+                        Password
                       </label>
                       <input
                         type={type ? 'password' : 'text'}
-                        // aria-labelledby='password'
+                        aria-labelledby='password'
+                        className='form-control'
                         name='password'
                         value={password}
                         onChange={(event) => setPassword(event.target.value)}
@@ -212,19 +213,13 @@ const Signup = () => {
                         Character) Minimum-length(8).
                       </small>
                     </div>
-
-                    <p
-                      className='text-center mb-3'
-                      style={{ color: '#666864' }}
-                    >
-                      Dear User Your Data Is Safe With Us.
-                    </p>
-
+                    {/*  */}
                     <div className='d-flex justify-content-center mx-4 mb-3 mb-lg-4'>
                       <button
                         type='submit'
                         className='btn btn-primary btn-lg'
                         onClick={handleSubmit}
+                        disabled={password === ''}
                       >
                         Register
                       </button>
