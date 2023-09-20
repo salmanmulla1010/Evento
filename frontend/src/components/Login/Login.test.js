@@ -1,6 +1,6 @@
 import React from 'react'
-import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import { expect, jest, test } from '@jest/globals'
+import { render, screen, fireEvent } from '@testing-library/react'
+import { expect, test } from '@jest/globals'
 import Login from './Login'
 import { MemoryRouter } from 'react-router-dom'
 import '@testing-library/jest-dom/extend-expect'

@@ -16,7 +16,6 @@ router.use(
   })
 )
 router.use(cookieParser())
-
 const validation = (req, resp, next) => {
   const token = req.cookies.token
   if (!token) {
