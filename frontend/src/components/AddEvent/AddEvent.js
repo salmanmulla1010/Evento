@@ -16,7 +16,7 @@ const AddEvent = () => {
   const navigate = useNavigate()
 
   const handledatetime = (date) => {
-    console.log('Ghe Ghe', date)
+    console.log('Date Format', date)
     setedatetime(date)
   }
 

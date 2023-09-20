@@ -69,7 +69,6 @@ const NewUpdateProfile = (e, firstname, lastname, email, password, pass) => {
         console.log('Error updating profile:', error)
       })
   } catch (err) {
-    console.log('Data Update Mai Gadbad Hai')
     console.log('Error--->', err)
   }
 }

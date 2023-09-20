@@ -32,12 +32,12 @@ const Signup = () => {
                 }
               )
               console.log('User Created')
-              response.send('Hello back ')
+              response.send('|-----User Created----|')
             } catch (error) {
               console.log('Error: ', error)
             }
           } else {
-            toast.error('please enter Strong password', {
+            toast.error('Please enter Strong password', {
               position: 'top-center',
               theme: 'colored',
             })

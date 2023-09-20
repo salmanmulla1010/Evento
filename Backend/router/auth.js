@@ -46,7 +46,7 @@ const mydb = mysql.createConnection({
   database: 'Evento',
 })
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Add Visitors
 const insertValue =
   'INSERT INTO `visitors` (`firstname`,`lastname`,`email`,`password`) VALUES(?)'
@@ -67,7 +67,7 @@ function db_post(insertValue) {
           if (err) {
             return reject(err)
           }
-          console.log(result, 'Added Visitor')
+          console.log('Added Visitor----->', result)
           return resolve(values)
         })
       })
@@ -79,7 +79,7 @@ db_post(insertValue)
   .then((res) => console.log(res))
   .catch((err) => console.log(err))
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////
 //get perticular visitors
 router.get('/register/:email', (req, resp) => {
   const email = req.params.email
@@ -87,7 +87,9 @@ router.get('/register/:email', (req, resp) => {
   mydb.query(updateByEmail, [email], (err, result) => {
     if (err) {
       console.log('Error Update Data By Email', err)
-      resp.status(500).json({ error: 'Internal Server Error' })
+      resp
+        .status(500)
+        .json({ error: 'Internal Server Error From Get Visitors' })
     } else {
       resp.json(result[0])
     }
@@ -102,7 +104,7 @@ router.get('/profile/:email', (req, resp) => {
   mydb.query(updateByEmail, [email], (err, result) => {
     if (err) {
       console.log('Error Update Data By Email', err)
-      resp.status(500).json({ error: 'Internal Server Error' })
+      resp.status(500).json({ error: 'Internal Server Error From Get Profile' })
     } else {
       resp.json(result[0])
     }
@@ -151,7 +153,9 @@ function visitorUpdate(updateVisitors) {
           (err, result) => {
             if (err) {
               console.log('Error fetching existing password:', err)
-              return res.status(500).json({ Error: 'Internal Server Error' })
+              return res
+                .status(500)
+                .json({ Error: 'Internal Server Error From Patch Profile' })
             }
 
             if (result.length === 0) {
@@ -254,7 +258,7 @@ eventPost(insertEvent)
 router.get('/addevent', (req, res) => {
   const sql = 'SELECT * FROM emenu'
   mydb.query(sql, (err, data) => {
-    if (err) return res.json('Get Error---->', err)
+    if (err) return res.json('Get Event Error---->', err)
     return res.json(data)
   })
 })
@@ -267,7 +271,7 @@ router.get('/addevent/:id', (req, resp) => {
   mydb.query(updateById, [id], (err, result) => {
     if (err) {
       console.log('Error Update Data By Id', err)
-      resp.status(500).json({ error: 'Internal Server Error' })
+      resp.status(500).json({ error: 'Internal Server Error From Get Event' })
     } else {
       resp.json(result[0])
     }

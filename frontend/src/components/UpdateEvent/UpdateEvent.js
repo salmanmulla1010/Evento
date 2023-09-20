@@ -28,12 +28,12 @@ const UpdateEvent = () => {
         .then((res) => {
           setEname(res.data.ename)
           setEdesc(res.data.edescription)
-          console.log('fetch date', res.data.edatetime)
+          console.log('Fetach Date Format', res.data.edatetime)
           setedatetime(new Date(res.data.edatetime))
           setEvenue(res.data.evenue)
         })
         .catch((err) => {
-          console.log('Daya Gadbad Hai-->', err)
+          console.log('Axios Error-->', err)
         })
     }
     fetchData()
@@ -52,12 +52,11 @@ const UpdateEvent = () => {
         })
         .then((response) => {
           console.log('Add Data------>', response)
-          response.send('Data Sended')
+          response.send('Data Sended.')
         })
       navigate('/')
     } catch (error) {
-      console.log('Daya Kuchh To Gadbad Hai')
-      console.log('Error------>', error)
+      console.log(' Axios Error------>', error)
     }
   }
   return (

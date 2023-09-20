@@ -19,8 +19,7 @@ const Login = () => {
         password,
       })
       .then((response) => {
-        console.log('User---->', response.data)
-        console.log('User Created')
+        console.log('User Created---->', response.data)
         if (response.data.Status === 'Success') {
           localStorage.setItem('info', JSON.stringify(response.data))
           navigate('/')
@@ -30,7 +29,7 @@ const Login = () => {
         }
       })
       .catch((error) => {
-        console.log('error', error)
+        console.log('Error----->', error)
         alert('invalid credientials')
       })
   }
