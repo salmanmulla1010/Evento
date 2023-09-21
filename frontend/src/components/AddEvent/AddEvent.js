@@ -21,8 +21,8 @@ const AddEvent = () => {
   }
 
   const formSubmit = (e) => {
-    const dateformat = moment(edatetime).format('yyyy-MM-DD,hh:mm:ss')
     e.preventDefault()
+    const dateformat = moment(edatetime).format('yyyy-MM-DD,hh:mm:ss')
     try {
       axios
         .post('http://localhost:5000/addevent', {
@@ -46,68 +46,71 @@ const AddEvent = () => {
   return (
     <div>
       <Navbar />
-
-      <div className='event-form'>
-        <h2>Create Event</h2>
-        <form onSubmit={formSubmit}>
-          <label htmlFor='ename' className='lable-form'>
-            Event Name :
-          </label>
-          <input
-            type='text'
-            required
-            name='ename'
-            value={ename}
-            onChange={(e) => setEname(e.target.value)}
-            placeholder='Event Name'
-            className='ename'
-          />
-          <label htmlFor='edescription' className='lable-form'>
-            Event Description :
-          </label>
-          <textarea
-            name='eDesc'
-            rows='5'
-            cols='33'
-            required
-            value={edescription}
-            onChange={(e) => setEdesc(e.target.value)}
-            placeholder='Event Description'
-            className='edescription'
-          />
-          <div>
-            <label htmlFor='edatetime' className='lable-form'>
-              Event Date & Time:
+      <div className='main-add-form'>
+        <div className='event-form'>
+          <h2>Create Event</h2>
+          <form onSubmit={formSubmit}>
+            <label htmlFor='ename' className='lable-form'>
+              Event Name :
             </label>
-            <DatePicker
-              placeholderText='Event Date & Time'
-              selected={edatetime}
-              onChange={handledatetime}
-              showTimeSelect
+            <input
+              type='text'
               required
-              dateFormat='MMMM d, yyyy h:mm a'
-              className='edatetime'
+              name='ename'
+              value={ename}
+              onChange={(e) => setEname(e.target.value)}
+              placeholder='Event Name'
+              className='ename'
             />
-          </div>
-          <label htmlFor='evenue' className='lable-form'>
-            Event Venue :
-          </label>
-          <input
-            type='text'
-            required
-            name='evenue'
-            value={evenue}
-            onChange={(e) => setEvenue(e.target.value)}
-            placeholder='Event Venue'
-            className='evenue'
-          />
-          <button type='submit' className='addSubmit'>
-            Please Submit
-          </button>
-          <Link to={'/'} className='backButton'>
-            ~Back
-          </Link>
-        </form>
+            <label htmlFor='edescription' className='lable-form'>
+              Event Description :
+            </label>
+            <textarea
+              name='eDesc'
+              rows='5'
+              cols='33'
+              required
+              value={edescription}
+              onChange={(e) => setEdesc(e.target.value)}
+              placeholder='Event Description'
+              className='edescription'
+            />
+            <div>
+              <label htmlFor='edatetime' className='lable-form'>
+                Event Date & Time:
+              </label>
+              <DatePicker
+                placeholderText='Event Date & Time'
+                selected={edatetime}
+                onChange={handledatetime}
+                showTimeSelect
+                required
+                dateFormat='MMMM d, yyyy h:mm a'
+                className='edatetime custom-datepicker'
+              />
+            </div>
+            <label htmlFor='evenue' className='lable-form'>
+              Event Venue :
+            </label>
+            <input
+              type='text'
+              required
+              name='evenue'
+              value={evenue}
+              onChange={(e) => setEvenue(e.target.value)}
+              placeholder='Event Venue'
+              className='evenue'
+            />
+            <div className='center-wrapper'>
+              <button type='submit' className='addSubmit'>
+                Please Submit
+              </button>
+              <Link to={'/'} className='backButton'>
+                ~Back
+              </Link>
+            </div>
+          </form>
+        </div>
       </div>
       <Footer />
     </div>

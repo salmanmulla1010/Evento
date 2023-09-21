@@ -97,7 +97,7 @@ const UpdateEvent = () => {
               onChange={handledatetime}
               showTimeSelect
               dateFormat='MMMM d, yyyy h:mm a'
-              className='edatetime'
+              className='edatetime custom-datepicker '
             />
           </div>
           <label htmlFor='evenue' className='lable-form'>
@@ -111,10 +111,12 @@ const UpdateEvent = () => {
             placeholder='Event Venue'
             className='evenue'
           />
-          <button className='updateEvent  update-button'>Update</button>
-          <Link to={'/'} className='backButton'>
-            ~Back
-          </Link>
+          <div className='center-wrapper'>
+            <button className='updateEvent  update-button'>Update</button>
+            <Link to={'/'} className='backButton'>
+              ~Back
+            </Link>
+          </div>
         </form>
       </div>
       <Footer />

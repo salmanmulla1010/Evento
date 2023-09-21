@@ -11,7 +11,6 @@ import UpdateEvent from './components/UpdateEvent/UpdateEvent'
 
 function App() {
   const loggedIn = localStorage.getItem('isLoggedIn')
-  console.log('Logged In User--', loggedIn)
   return (
     <BrowserRouter>
       <Routes>

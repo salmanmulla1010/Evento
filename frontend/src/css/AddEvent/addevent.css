@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya&family=Poltawski+Nowy:wght@700&display=swap');
+.main-add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .event-form {
   max-width: 500px;
   margin: 0 auto;
@@ -22,8 +28,12 @@
 .evenue {
   margin-bottom: 0.5rem;
 }
+.custom-datepicker {
+  width: 400px !important;
+}
 
 .lable-form {
+  margin-top: 10px;
   display: block;
   font-weight: bold;
   color: white;
@@ -31,12 +41,17 @@
 }
 
 input[type='text'],
-input[type='datetime-local'],
 textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+
+.center-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .addSubmit {
@@ -46,8 +61,6 @@ textarea {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  display: inline-block;
-  margin-left: 25%;
 }
 .addSubmit:hover {
   background-color: blue;
@@ -78,7 +91,7 @@ textarea {
 
 @media (max-width: 768px) {
   .event-form {
-    margin-top: auto;
+    margin-top: 0;
     border: none;
     max-width: 80%;
     height: auto;
@@ -93,9 +106,14 @@ textarea {
   }
   .addSubmit {
     padding: 5px 10px;
-    margin-left: 10%;
   }
   .backButton {
     padding: 5px 10px;
+  }
+  .lable-form {
+    margin-top: 0;
+  }
+  .custom-datepicker {
+    width: 280px !important;
   }
 }

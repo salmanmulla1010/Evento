@@ -1,12 +1,19 @@
+.end-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
 .AddEvent {
   text-decoration: none;
   padding: 0.5rem;
-  margin-left: 85%;
   border-radius: 8px;
   color: white;
-  display: inline-block;
   background-color: #4caf50;
   border: 2px solid #4caf50;
+  margin-right: 20px;
+}
+.custom-datepicker {
+  width: 400px !important;
 }
 .AddEvent,
 .updateEvent,
@@ -14,7 +21,10 @@
   transition-duration: 0.4s;
 }
 
-.AddEvent:hover,
+.AddEvent:hover {
+  background-color: green;
+  border: 2px solid green;
+}
 .updateEvent:hover,
 .deleteEvent:hover {
   background-color: white;
@@ -29,10 +39,6 @@
   display: inline-block;
   background-color: rgb(39, 39, 255);
   border: 2px solid rgb(39, 39, 255);
-}
-.update-button {
-  display: inline-block;
-  margin-left: 30%;
 }
 
 .deleteEvent {
@@ -60,7 +66,7 @@
   .deleteEvent {
     padding: 3px;
   }
-  .AddEvent {
-    margin-left: 10%;
+  .custom-datepicker {
+    width: 280px !important;
   }
 }

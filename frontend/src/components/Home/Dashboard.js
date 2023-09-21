@@ -5,9 +5,11 @@ import { Link } from 'react-router-dom'
 const Dashboard = () => {
   return (
     <div className='dashboard'>
-      <Link to='/addevent' className='AddEvent'>
-        Add Event
-      </Link>
+      <div className='end-wrapper'>
+        <Link to='/addevent' className='AddEvent'>
+          Add Event
+        </Link>
+      </div>
       <EventTable />
     </div>
   )

@@ -34,8 +34,8 @@ const validation = (req, resp, next) => {
   }
 }
 
-router.get('/', validation, (req, resp) => {
-  return resp.json({ Status: 'Success', name: req.body })
+router.get('/', validation, (req, res) => {
+  res.status(200).json({ status: 'Success', data: req.body })
 })
 
 const mydb = mysql.createConnection({
@@ -46,7 +46,7 @@ const mydb = mysql.createConnection({
 })
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//Add Visitors
+// //Add Visitors
 const insertValue =
   'INSERT INTO `visitors` (`firstname`,`lastname`,`email`,`password`) VALUES(?)'
 
@@ -254,26 +254,39 @@ eventPost(insertEvent)
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //Get All Events
+
 router.get('/addevent', (req, res) => {
   const sql = 'SELECT * FROM emenu'
+
   mydb.query(sql, (err, data) => {
-    if (err) return res.json('Get Event Error---->', err)
-    return res.json(data)
+    if (err) {
+      console.error('Error fetching events:', err)
+      return res.status(500).json({ error: 'Internal Server Error' })
+    }
+    return res.status(200).json(data)
   })
 })
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //get perticular event by id
-router.get('/addevent/:id', (req, resp) => {
+
+router.get('/addevent/:id', (req, res) => {
   const id = req.params.id
-  const updateById = 'SELECT * FROM emenu WHERE id = ?'
-  mydb.query(updateById, [id], (err, result) => {
+  const selectQuery = 'SELECT * FROM emenu WHERE id = ?'
+
+  mydb.query(selectQuery, [id], (err, result) => {
     if (err) {
-      console.log('Error Update Data By Id', err)
-      resp.status(500).json({ error: 'Internal Server Error From Get Event' })
-    } else {
-      resp.json(result[0])
+      console.error('Error fetching data by ID:', err)
+      return res
+        .status(500)
+        .json({ error: 'Internal Server Error From Get Event' })
     }
+
+    if (result.length === 0) {
+      return res.status(404).json({ error: 'Event not found' })
+    }
+
+    res.json(result[0])
   })
 })
 

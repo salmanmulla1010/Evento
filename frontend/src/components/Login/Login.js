@@ -4,6 +4,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import LockSharpIcon from '@mui/icons-material/LockSharp'
 import NoEncryptionSharpIcon from '@mui/icons-material/NoEncryptionSharp'
 import ClipArt from '../../css/Photos/ClipArt.jpg'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const Login = () => {
   axios.defaults.withCredentials = true
@@ -11,9 +13,9 @@ const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const loginSubmit = (e) => {
+  const loginSubmit = async (e) => {
     e.preventDefault()
-    axios
+    await axios
       .post('http://localhost:5000/login', {
         email,
         password,
@@ -25,12 +27,11 @@ const Login = () => {
           navigate('/')
           localStorage.setItem('user', true)
         } else {
-          alert('Invalid')
+          toast.error('invalid credentials', {
+            position: 'top-center',
+            theme: 'colored',
+          })
         }
-      })
-      .catch((error) => {
-        console.log('Error----->', error)
-        alert('invalid credientials')
       })
   }
   // handle toggle do one component
@@ -68,6 +69,7 @@ const Login = () => {
                         >
                           Email-Id :
                         </label>
+
                         <input
                           type='email'
                           name='email'
@@ -154,6 +156,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }
